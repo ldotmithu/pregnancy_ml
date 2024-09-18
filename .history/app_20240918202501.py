@@ -28,12 +28,12 @@ def index():
             HeartRate =float(request.form['HeartRate'])
          
             data = [Age,SystolicBP,DiastolicBP,BS,BodyTemp,HeartRate]
-            data = np.array(data).reshape(1, 6)
+            data = np.array(data).reshape(1, 11)
             
             obj = PredictionPipeline()
             predict = obj.predict(data)
 
-            return render_template('results.html', prediction = predict)
+            return render_template('results.html', prediction = str(predict))
 
         except Exception as e:
             print('The Exception message is: ',e)

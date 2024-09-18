@@ -42,7 +42,7 @@ class ModelTrain:
         
         import numpy as np
         
-        '''
+        """""""
 
         conditions = [
             (train_data['RiskLevel'] == 'high risk'),
@@ -64,7 +64,7 @@ class ModelTrain:
 
         test_data['RiskLevel'] = np.select(conditions, values)
         
-        '''
+        """""""
         
         target_col='RiskLevel'
         

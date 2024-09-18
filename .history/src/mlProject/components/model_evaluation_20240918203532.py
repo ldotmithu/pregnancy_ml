@@ -43,5 +43,4 @@ class ModelEvaluation:
         score={'acc_score':acc_score}
         
         save_json(Path(self.config.metrics_file), data=score)
-        logging.info(score)
         
