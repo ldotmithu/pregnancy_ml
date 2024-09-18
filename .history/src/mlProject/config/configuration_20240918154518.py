@@ -19,7 +19,7 @@ class ConfigurationManager:
             data_ingestion_config=DataIngestionConfig(
                 root_dir=config.root_dir,
                 URL=config.URL,
-                loacl_data_path=config.loacl_data_path,
+                local_data_path=config.local_data_path,
                 unzip_dir=config.unzip_dir
             )
             

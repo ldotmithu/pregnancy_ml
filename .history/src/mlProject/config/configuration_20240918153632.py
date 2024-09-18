@@ -6,10 +6,8 @@ from mlProject.utils.common import *
 class ConfigurationManager:
     def __init__(self):
         self.config=read_yaml(CONFIG_FILE_PATH)
-        self.schema=read_yaml(SCHEMA_FILE_PATH)
-        self.params=read_yaml(PARAMS_FILE_PATH)
         
-        create_directories([self.config.artifacts_root])
+        create_directories([self.config.arifacts_root])
         
     def get_data_ingestion_config(self):
             config=self.config.data_ingestion
@@ -19,7 +17,7 @@ class ConfigurationManager:
             data_ingestion_config=DataIngestionConfig(
                 root_dir=config.root_dir,
                 URL=config.URL,
-                loacl_data_path=config.loacl_data_path,
+                local_data_path=config.local_data_path,
                 unzip_dir=config.unzip_dir
             )
             

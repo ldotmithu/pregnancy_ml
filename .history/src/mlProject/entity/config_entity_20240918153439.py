@@ -4,6 +4,4 @@ from pathlib import Path
 @dataclass
 class DataIngestionConfig:
     root_dir:Path
-    URL:str
-    loacl_data_path:Path
-    unzip_dir:Path
+    

@@ -14,5 +14,4 @@ types-PyYAML
 Flask
 Flask-Cors
 dill
-streamlit
 -e .
