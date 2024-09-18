@@ -41,33 +41,14 @@ class ConfigurationManager:
         return data_validation_config
     
     def get_data_transfomation_config(self):
-        config=self.config.data_transfomation
+        config=self.config
         
         create_directories([config.root_dir])
         
-        data_transfomation_config=DataTransformationConfig(
+        data_transfomation_config=DataValidationConfig(
             root_dir=config.root_dir,
             data_path=config.data_path,
             Status_file=config.Status_file
             
         )
         return data_transfomation_config
-    
-    def get_model_train_config(self):
-        config=self.config.model_train
-        params=self.params.RandomForestClassifier
-        schema=self.schema.Target_column
-        
-        create_directories([config.root_dir])
-        
-        model_train_config=ModelTrainConfig(
-            root_dir=config.root_dir,
-            train_data_path=config.train_data_path,
-            test_data_path=config.test_data_path,
-            model_file=config.model_file,
-            preprocess_file=config.preprocess_file,
-            n_estimators=params.n_estimators,
-            criterion=params.criterion,
-            Target_column=schema.name
-        )
-        return model_train_config

@@ -19,14 +19,5 @@ data_transfomation:
 
 model_train:
   root_dir: artifacts/model_train
-  train_data_path: artifacts\data_transfomation\train.csv
-  test_data_path: artifacts\data_transfomation\test.csv
-  model_file: model.joblib
-  preprocess_file: preprocess.joblib
-
-model_evaluation:
-  root_dir: artifacts/model_evaluation
-  model_file: artifacts\model_train\model.joblib
-  preprocess_file: artifacts\model_train\preprocess.joblib
-  
+  tes  
 

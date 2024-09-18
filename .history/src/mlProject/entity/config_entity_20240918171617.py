@@ -19,16 +19,4 @@ class DataValidationConfig:
 class DataTransformationConfig:
     root_dir:Path
     data_path:Path
-    Status_file:Path  
-    
-@dataclass
-class ModelTrainConfig:
-    root_dir:Path
-    train_data_path:Path
-    test_data_path:Path
-    model_file:Path
-    preprocess_file:Path
-    n_estimators:int
-    criterion:str
-    Target_column: str
-      
+    Status_file:Path    

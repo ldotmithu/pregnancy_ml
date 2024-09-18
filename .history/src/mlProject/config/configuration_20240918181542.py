@@ -68,6 +68,6 @@ class ConfigurationManager:
             preprocess_file=config.preprocess_file,
             n_estimators=params.n_estimators,
             criterion=params.criterion,
-            Target_column=schema.name
+            Target_column=schema.Target_column
         )
         return model_train_config

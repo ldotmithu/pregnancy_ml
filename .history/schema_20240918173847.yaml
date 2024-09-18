@@ -1,0 +1,11 @@
+Columns:
+    Age: int64
+    SystolicBP: int64
+    DiastolicBP: int64
+    BS : float64
+    BodyTem: float64
+    HeartRate: float64
+    #RiskLevel: int32
+
+Target_column: 
+    name : RiskLevel

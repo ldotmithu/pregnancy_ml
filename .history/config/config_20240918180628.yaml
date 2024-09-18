@@ -28,5 +28,4 @@ model_evaluation:
   root_dir: artifacts/model_evaluation
   model_file: artifacts\model_train\model.joblib
   preprocess_file: artifacts\model_train\preprocess.joblib
-  
 

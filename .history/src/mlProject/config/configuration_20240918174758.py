@@ -55,8 +55,6 @@ class ConfigurationManager:
     
     def get_model_train_config(self):
         config=self.config.model_train
-        params=self.params.RandomForestClassifier
-        schema=self.schema.Target_column
         
         create_directories([config.root_dir])
         
@@ -65,9 +63,5 @@ class ConfigurationManager:
             train_data_path=config.train_data_path,
             test_data_path=config.test_data_path,
             model_file=config.model_file,
-            preprocess_file=config.preprocess_file,
-            n_estimators=params.n_estimators,
-            criterion=params.criterion,
-            Target_column=schema.name
+            preprocess_file=config.preprocess_file
         )
-        return model_train_config

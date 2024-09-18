@@ -1,0 +1,3 @@
+RandomForestClassifier :
+  n_estimators: 99
+  criterion: 'gini'

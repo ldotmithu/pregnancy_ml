@@ -35,10 +35,10 @@ except Exception as e:
     logging.exception(e)
     raise e 
 
-Stage_Name='Model Train'
+Stage_Name='Data Transfomation'
 try:
-    model_train=ModelTrainPipeline()
-    model_train.main()
+    data_transfomation=DataTransfomationPipeline()
+    data_transfomation.main()
     logging.info(f'{Stage_Name} Completed')
     
 except Exception as e:

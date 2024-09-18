@@ -28,7 +28,5 @@ class ModelTrainConfig:
     test_data_path:Path
     model_file:Path
     preprocess_file:Path
-    n_estimators:int
-    criterion:str
-    Target_column: str
+    
       
