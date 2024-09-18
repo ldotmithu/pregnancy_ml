@@ -37,6 +37,5 @@ class ModelEvaluationConfig:
     root_dir:Path
     model_file:Path
     preprocess_file:Path
-    metrics_file:Path   
-    test_data_path:Path 
+    metrics_file:Path    
       

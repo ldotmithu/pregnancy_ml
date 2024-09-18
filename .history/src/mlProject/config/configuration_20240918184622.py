@@ -74,7 +74,7 @@ class ConfigurationManager:
     
     def get_model_evaluation_config(self):
         config=self.config.model_evaluation
-        #schema=self.schema.Target_column
+        schema=self.schema.Target_column
         
         create_directories([config.root_dir])
         
@@ -84,10 +84,9 @@ class ConfigurationManager:
             model_file=config.model_file,
             preprocess_file=config.preprocess_file,
             metrics_file=config.metrics_file,
-            #Target_column=schema.name
+            Target_column=schema.name
             
         )
-        return model_evaluation_config
         
         
         

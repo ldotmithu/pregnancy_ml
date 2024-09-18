@@ -73,21 +73,4 @@ class ConfigurationManager:
         return model_train_config
     
     def get_model_evaluation_config(self):
-        config=self.config.model_evaluation
-        #schema=self.schema.Target_column
-        
-        create_directories([config.root_dir])
-        
-        model_evaluation_config=ModelEvaluationConfig(
-            root_dir=config.root_dir,
-            test_data_path=config.test_data_path,
-            model_file=config.model_file,
-            preprocess_file=config.preprocess_file,
-            metrics_file=config.metrics_file,
-            #Target_column=schema.name
-            
-        )
-        return model_evaluation_config
-        
-        
-        
+        pass

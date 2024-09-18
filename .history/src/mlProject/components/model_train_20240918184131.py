@@ -40,28 +40,6 @@ class ModelTrain:
         train_data=pd.read_csv(self.config.train_data_path)
         test_data=pd.read_csv(self.config.test_data_path)
         
-        import numpy as np
-
-        conditions = [
-            (train_data['RiskLevel'] == 'high risk'),
-            (train_data['RiskLevel'] == 'mid risk'),
-            (train_data['RiskLevel'] == 'low risk')
-        ]
-
-        values = [2, 1, 0]
-
-        train_data['RiskLevel'] = np.select(conditions, values)
-        
-        conditions = [
-            (test_data['RiskLevel'] == 'high risk'),
-            (test_data['RiskLevel'] == 'mid risk'),
-            (test_data['RiskLevel'] == 'low risk')
-        ]
-
-        values = [2, 1, 0]
-
-        test_data['RiskLevel'] = np.select(conditions, values)
-        
         target_col='RiskLevel'
         
         X_train=train_data.drop(columns=target_col,axis=1)
@@ -69,7 +47,27 @@ class ModelTrain:
         y_train=train_data[self.config.Target_column]
         y_test=test_data[self.config.Target_column]
         
+        import numpy as np
+
+        conditions = [
+            (y_train['RiskLevel'] == 'high risk'),
+            (y_train['RiskLevel'] == 'mid risk'),
+            (y_train['RiskLevel'] == 'low risk')
+        ]
+
+        values = [2, 1, 0]
+
+        y_train['RiskLevel'] = np.select(conditions, values)
         
+        conditions = [
+            (y_test['RiskLevel'] == 'high risk'),
+            (y_test['RiskLevel'] == 'mid risk'),
+            (y_test['RiskLevel'] == 'low risk')
+        ]
+
+        values = [2, 1, 0]
+
+        y_test['RiskLevel'] = np.select(conditions, values)
         
         preprocess_obj=self.preprocess_method()
         
