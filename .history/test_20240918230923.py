@@ -7,6 +7,39 @@ from pathlib import Path
 model = joblib.load(Path('artifacts/model_train/model.joblib'))
 churn_preprocess = joblib.load(Path('artifacts/model_train/preprocess.joblib'))
 
+# Set up the Streamlit page configuration
+st.set_page_config(page_title="Mental Risk Prediction", layout="wide")
+
+# Add a custom CSS to style the app
+st.markdown("""
+    <style>
+    .main { 
+        background-color: #f0f2f6; 
+        padding: 20px;
+    }
+    .sidebar .sidebar-content { 
+        background-color: #ffffff; 
+    }
+    h1 {
+        color: #0d6efd;
+        font-size: 2rem;
+    }
+    .stButton button {
+        background-color: #0d6efd;
+        color: white;
+        border-radius: 10px;
+        padding: 10px;
+        font-size: 16px;
+    }
+    .stButton button:hover {
+        background-color: #0056b3;
+    }
+    .stSelectbox {
+        width: 100%;
+    }
+    </style>
+""", unsafe_allow_html=True)
+
 # Create the Streamlit UI with tabs
 st.title("Mental Risk Prediction Using Machine Learning")
 
@@ -15,14 +48,14 @@ tabs = st.tabs(["Prediction", "Feature Explanation"])
 
 with tabs[0]:
     st.header("Predict Mental Risk")
-
+    
     # Input fields for the features
     Age = st.number_input("Age", min_value=0, max_value=150, value=30)
-    SystolicBP = st.slider("Systolic BP", min_value=80, max_value=220, value=120)
-    DiastolicBP = st.number_input("Diastolic BP", min_value=40, max_value=211, value=80)
-    BS = st.number_input("Blood Sugar")
-    BodyTemp = st.slider("Body Temperature (°F)", min_value=95, max_value=106, value=98)
-    HeartRate = st.number_input("Heart Rate", min_value=30, max_value=150, value=70)
+    SystolicBP = st.selectbox("Systolic BP", options=[i for i in range(80, 201)], index=0)
+    DiastolicBP = st.selectbox("Diastolic BP", options=[i for i in range(40, 121)], index=0)
+    BS = st.selectbox("Blood Sugar", options=["Normal", "High", "Low"], index=0)
+    BodyTemp = st.selectbox("Body Temperature", options=[i for i in range(95, 106)], index=0)
+    HeartRate = st.selectbox("Heart Rate", options=[i for i in range(30, 201)], index=0)
 
     # Create a DataFrame from input data
     input_data = pd.DataFrame({
@@ -43,12 +76,8 @@ with tabs[0]:
 
     # Predict mental risk
     if st.button("Predict") and input_data_preprocessed is not None:
-        with st.spinner("Processing..."):
-            try:
-                prediction = model.predict(input_data_preprocessed)[0]
-                st.success(f"Prediction: **{prediction}**")
-            except Exception as e:
-                st.error(f"Error in prediction: {e}")
+        prediction = model.predict(input_data_preprocessed)[0]
+        st.success(f"Prediction: {prediction}")
 
 with tabs[1]:
     st.header("Feature Explanations")
@@ -59,6 +88,7 @@ with tabs[1]:
     - **Systolic BP**: Systolic Blood Pressure measured in mm Hg.
     - **Diastolic BP**: Diastolic Blood Pressure measured in mm Hg.
     - **Blood Sugar**: Blood sugar level; categories might be Normal, High, or Low.
-    - **Body Temperature**: Body temperature in degrees Fahrenheit (°F).
+    - **Body Temperature**: Body temperature in degrees Fahrenheit or Celsius.
     - **Heart Rate**: Heart rate measured in beats per minute.
     """)
+

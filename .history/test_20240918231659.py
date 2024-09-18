@@ -20,7 +20,7 @@ with tabs[0]:
     Age = st.number_input("Age", min_value=0, max_value=150, value=30)
     SystolicBP = st.slider("Systolic BP", min_value=80, max_value=220, value=120)
     DiastolicBP = st.number_input("Diastolic BP", min_value=40, max_value=211, value=80)
-    BS = st.number_input("Blood Sugar")
+    BS = st.selectbox("Blood Sugar", options=["Normal", "High", "Low"], index=0)
     BodyTemp = st.slider("Body Temperature (°F)", min_value=95, max_value=106, value=98)
     HeartRate = st.number_input("Heart Rate", min_value=30, max_value=150, value=70)
 

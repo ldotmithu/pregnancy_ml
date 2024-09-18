@@ -17,12 +17,12 @@ with tabs[0]:
     st.header("Predict Mental Risk")
 
     # Input fields for the features
-    Age = st.number_input("Age", min_value=0, max_value=150, value=30)
-    SystolicBP = st.slider("Systolic BP", min_value=80, max_value=220, value=120)
-    DiastolicBP = st.number_input("Diastolic BP", min_value=40, max_value=211, value=80)
-    BS = st.number_input("Blood Sugar")
+    Age = st.number_input("Age", min_value=0, max_value=150)
+    SystolicBP = st.slider("Systolic BP", min_value=80, max_value=220, value=98)
+    DiastolicBP = st.number_input("Diastolic BP", min_value=40, max_value=211)
+    BS = st.number_input("BS")
     BodyTemp = st.slider("Body Temperature (°F)", min_value=95, max_value=106, value=98)
-    HeartRate = st.number_input("Heart Rate", min_value=30, max_value=150, value=70)
+    HeartRate = st.selectbox("Heart Rate", options=[i for i in range(30, 201)], index=0)
 
     # Create a DataFrame from input data
     input_data = pd.DataFrame({
@@ -43,12 +43,8 @@ with tabs[0]:
 
     # Predict mental risk
     if st.button("Predict") and input_data_preprocessed is not None:
-        with st.spinner("Processing..."):
-            try:
-                prediction = model.predict(input_data_preprocessed)[0]
-                st.success(f"Prediction: **{prediction}**")
-            except Exception as e:
-                st.error(f"Error in prediction: {e}")
+        prediction = model.predict(input_data_preprocessed)[0]
+        st.write(f"Prediction: {prediction}")
 
 with tabs[1]:
     st.header("Feature Explanations")
@@ -59,6 +55,6 @@ with tabs[1]:
     - **Systolic BP**: Systolic Blood Pressure measured in mm Hg.
     - **Diastolic BP**: Diastolic Blood Pressure measured in mm Hg.
     - **Blood Sugar**: Blood sugar level; categories might be Normal, High, or Low.
-    - **Body Temperature**: Body temperature in degrees Fahrenheit (°F).
+    - **Body Temperature**: Body temperature in degrees Fahrenheit or Celsius.
     - **Heart Rate**: Heart rate measured in beats per minute.
     """)
