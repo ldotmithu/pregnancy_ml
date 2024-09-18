@@ -7,8 +7,4 @@ data_ingestion:
   unzip_dir: artifacts/data_ingestion
 
 
-data_validation:
-  root_dir : artifacts/data_validation
-  unzip_dir: artifacts\data_ingestion\Maternal Health Risk Data Set.xls
-  Status_file: artifacts/data_validation/Status.txt
 

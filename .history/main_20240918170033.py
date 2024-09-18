@@ -11,14 +11,3 @@ try:
 except Exception as e:
     logging.exception(e)
     raise e    
-
-
-Stage_Name='Data Validation'
-try:
-    data_validation=DataValidationPipeline()
-    data_validation.main()
-    logging.info(f'{Stage_Name} Completed')
-    
-except Exception as e:
-    logging.exception(e)
-    raise e  

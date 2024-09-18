@@ -13,4 +13,3 @@ class DataValidationConfig:
     root_dir:Path
     unzip_dir:Path
     Status_file: Path  
-    all_schema: dict

@@ -5,7 +5,8 @@ Columns:
     BS : float64
     BodyTem: float64
     HeartRate: float64
-    RiskLevel: int32
+    RiskLevel: int64
+    RiskLevel: int32 
 
 Target_column: 
     name : RiskLevel

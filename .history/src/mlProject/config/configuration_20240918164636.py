@@ -34,9 +34,6 @@ class ConfigurationManager:
         data_validation_config=DataValidationConfig(
             root_dir=config.root_dir,
             unzip_dir=config.unzip_dir,
-            Status_file=config.Status_file,
-            all_schema=schema
+            Status_file=config.Status_file
         )    
-        
-        return data_validation_config
         
